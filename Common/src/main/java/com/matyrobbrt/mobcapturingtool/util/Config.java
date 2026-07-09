@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 
 public class Config {
     private static final Gson GSON = new GsonBuilder()
@@ -21,11 +20,6 @@ public class Config {
     public static Config getInstance() {
         return instance;
     }
-
-    @SerializedName("blacklisted_entities")
-    public List<String> blacklistedEntities = List.of(
-            "minecraft:ender_dragon"
-    );
 
     @SerializedName("enable_dispenser_behaviour")
     public boolean enableDispenserBehaviour = true;

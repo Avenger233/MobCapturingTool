@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.boss.EnderDragonPart;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.DispenserBlock;
 
@@ -42,8 +43,20 @@ public class MCTInit {
     @Nullable
     public static InteractionResult handleEntityInteraction(final Player player, final Entity entity, final InteractionHand hand) {
         final var stack = player.getItemInHand(hand);
-        if (player.isSpectator() || !(entity instanceof LivingEntity target) || !(stack.getItem() instanceof CapturingToolItem))
+        final var target = getCapturableTarget(entity);
+        if (player.isSpectator() || target == null || !(stack.getItem() instanceof CapturingToolItem))
             return null;
         return CapturingToolItem.capture(stack, target, player) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+    }
+
+    @Nullable
+    private static LivingEntity getCapturableTarget(final Entity entity) {
+        if (entity instanceof LivingEntity livingEntity) {
+            return livingEntity;
+        }
+        if (entity instanceof EnderDragonPart enderDragonPart) {
+            return enderDragonPart.parentMob;
+        }
+        return null;
     }
 }

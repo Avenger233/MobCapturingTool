@@ -24,7 +24,7 @@ public class CapturingPredicates {
     public static final CapturingPredicate CHECK_TAG = new CapturingPredicate() {
         @Override
         public boolean canPickup(ItemStack stack, LivingEntity target, @Nullable Player player) {
-            return !target.getType().is(Constants.BLACKLISTED_TAG);
+            return true;
         }
 
         @Override

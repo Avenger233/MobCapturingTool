@@ -107,12 +107,7 @@ public class CapturingToolItem extends Item {
     }
 
     public static boolean isBlacklisted(ItemStack stack, LivingEntity target, @Nullable Player player) {
-        final var regName = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType());
-        if (Config.getInstance().blacklistedEntities.contains(regName.toString()))
-            return true;
-        return !Objects.requireNonNullElse(CapturingPredicates.PREDICATES
-                .get(target.level().registryAccess()).get(regName), CapturingPredicates.CHECK_TAG)
-                .canPickup(stack, target, player);
+        return false;
     }
 
     @Override

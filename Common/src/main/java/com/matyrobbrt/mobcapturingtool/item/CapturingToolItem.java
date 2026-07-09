@@ -1,9 +1,8 @@
 package com.matyrobbrt.mobcapturingtool.item;
 
-import com.matyrobbrt.mobcapturingtool.util.Config;
 import com.matyrobbrt.mobcapturingtool.util.Constants;
-import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
@@ -71,14 +70,6 @@ public class CapturingToolItem extends Item {
             return false;
         if (target instanceof Player || !target.isAlive())
             return false;
-        if (isBlacklisted(stack, target, player)) {
-            if (player != null) {
-                final var regName = EntityType.getKey(target.getType()).toString();
-                player.displayClientMessage(Constants.getTranslation("blacklisted",
-                        Component.literal(regName).withStyle(ChatFormatting.GOLD)), true);
-            }
-            return false;
-        }
         final var nbt = new CompoundTag();
         nbt.putString(ENTITY_TYPE_TAG, EntityType.getKey(target.getType()).toString());
         target.saveWithoutId(nbt);
@@ -103,10 +94,6 @@ public class CapturingToolItem extends Item {
             level.addFreshEntity(entity);
             return true;
         }
-        return false;
-    }
-
-    public static boolean isBlacklisted(ItemStack stack, LivingEntity target, @Nullable Player player) {
         return false;
     }
 

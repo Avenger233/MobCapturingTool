@@ -69,7 +69,7 @@ public class CapturingToolItem extends Item {
     public static boolean capture(ItemStack stack, LivingEntity target, @Nullable Player player) {
         if (target.level().isClientSide || getEntityType(stack) != null)
             return false;
-        if (target instanceof Player || !target.canChangeDimensions() || !target.isAlive())
+        if (target instanceof Player || !target.isAlive())
             return false;
         if (isBlacklisted(stack, target, player)) {
             if (player != null) {

@@ -4,7 +4,6 @@ import com.matyrobbrt.mobcapturingtool.reg.RegistrationProvider;
 import com.matyrobbrt.mobcapturingtool.reg.registries.DatapackRegistry;
 import com.matyrobbrt.mobcapturingtool.reg.registries.RegistryFeatureType;
 import com.matyrobbrt.mobcapturingtool.util.Constants;
-import net.minecraft.ChatFormatting;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Registry;

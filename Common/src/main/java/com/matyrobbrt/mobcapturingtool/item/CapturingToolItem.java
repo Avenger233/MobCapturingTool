@@ -2,6 +2,7 @@ package com.matyrobbrt.mobcapturingtool.item;
 
 import com.matyrobbrt.mobcapturingtool.util.Constants;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
